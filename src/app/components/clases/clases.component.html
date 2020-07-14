@@ -1,0 +1,23 @@
+<div [ngClass]="alerta" class="alert" role="alert">
+    A simple primary alert—check it out!
+</div>
+
+<button type="button" class="btn btn-info mr-3" (click)="alerta = 'alert-info'">Info</button>
+<button type="button" class="btn btn-success" (click)="alerta = 'alert-success'">Success</button>
+<br><br>
+<!-- Si la variable danger del objeto propiedades esta en true la linea de abajo hara que el texto este en rojo (danger), si danger es false entonces estara en azul (info) -->
+<h3 [ngClass]="{'text-danger': propiedades.danger, 'text-info': !propiedades.danger }">
+    Hola Mundo
+</h3>
+
+<button type="button" class="btn" name="button" (click)="propiedades.danger = !propiedades.danger" [ngClass]="{'btn-danger':propiedades.danger, 'btn-info':!propiedades.danger }">Cambiar</button>
+
+
+<br><br>
+<h3>Proceso Asincrono</h3>
+<!-- [disabled]="loading" con el corchete lo maneja angular y le estoy diciendo que cuando este cargado en boton este deshabilitado -->
+<button (click)="ejecutar()" class="btn btn-primary" type="button" name="button" [disabled]="loading">
+    <i [ngClass]="{'fa-save':!loading, 'fa-sync-alt fa-spin': loading}" class="fas mr-1"></i>
+    <span *ngIf="!loading">Guardar cambios</span> 
+    <span *ngIf="loading">Espere por favor</span> 
+</button>
