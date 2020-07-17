@@ -26,7 +26,7 @@ export class ResaltadoDirective {
     }
 
 private resaltar( color:string){
-  this.el.nativeElement.style.backgroundColor = 'color';
+  this.el.nativeElement.style.backgroundColor = color;
   
 }
 
